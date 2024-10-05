@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.3a61f74d.js",
+    "main.js": "/static/js/main.df3d6d48.js",
     "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
+    "static/media/IMG_6649.jpg": "/static/media/IMG_6649.5dbe26d7f5ea9cb2e9a3.jpg",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
     "static/media/chi-24-to-reach-the-unreachable.png": "/static/media/chi-24-to-reach-the-unreachable.435a0f2a6a5eacd5588b.png",
     "static/media/uist-24-augmented-physics.png": "/static/media/uist-24-augmented-physics.1894da96c36758ae22f0.png",
     "static/media/chi-24-to-reach-the-unreachable.pdf": "/static/media/chi-24-to-reach-the-unreachable.b959586ec50f4c212296.pdf",
-    "static/media/IMG_2267.jpg": "/static/media/IMG_2267.1ccad296e0d5683aedee.jpg",
     "static/media/Nandi_s_Résumé.pdf": "/static/media/Nandi_s_Résumé.1d64cafde51fd864b042.pdf",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.3a61f74d.js.map": "/static/js/main.3a61f74d.js.map",
+    "main.df3d6d48.js.map": "/static/js/main.df3d6d48.js.map",
     "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.3a61f74d.js"
+    "static/js/main.df3d6d48.js"
   ]
 }
