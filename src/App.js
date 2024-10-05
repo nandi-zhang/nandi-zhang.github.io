@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import profilePic from './IMG_2267.jpg';
+import profilePic from './IMG_6649.jpg';
 import CV from './Nandi_s_Résumé.pdf';
 import agp from './uist-24-augmented-physics.png';
 import agppdf from './uist-24-augmented-physics.pdf';
