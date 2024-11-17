@@ -312,7 +312,7 @@ const App = () => {
         </ProjectList>
       </ProjectsSection>
       <PressCoverageSection>
-        <PressCoverageHeading>Press Coverage</PressCoverageHeading>
+        <PressCoverageHeading>Media</PressCoverageHeading>
         <PressLinks>
           <PressItem>
             <PressLink href="https://youtu.be/qq6sQMP-7so?si=QTaTuyyzHihmvOiA">
