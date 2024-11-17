@@ -8,6 +8,10 @@ import reach from './chi-24-to-reach-the-unreachable.png';
 import reachpdf from './chi-24-to-reach-the-unreachable.pdf';
 import styled from 'styled-components';
 
+import project1Pic from './I2IGAN.png';
+import project1Pdf from './Unsupervised-Prototypical-GAN.pdf';
+import project2Pic from './SnapVR.png';
+
 // Styled components
 const Container = styled.div`
   display: grid;
@@ -140,6 +144,84 @@ const Button = styled.a`
   }
 `;
 
+const ProjectsSection = styled(PublicationsSection)``;
+
+const ProjectHeading = styled(PublicationHeading)``;
+
+const ProjectList = styled(PublicationList)``;
+
+const ProjectItem = styled(PublicationItem)``;
+
+const ProjectImage = styled(PublicationImage)``;
+
+const ProjectContent = styled(PublicationContent)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const ProjectHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+`;
+
+const ProjectTitle = styled(PublicationTitle)`
+  margin-right: 10px;
+`;
+
+const ProjectDate = styled.span`
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+`;
+
+const ProjectDescription = styled.p`
+  margin: 0;
+  line-height: 1.4;
+`;
+
+const PressCoverageSection = styled.section`
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+const PressCoverageHeading = styled.h2`
+  text-align: left;
+  margin-left: 0px;
+  margin-bottom: 20px;
+`;
+
+const PressLinks = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
+const PressItem = styled.li`
+  margin-bottom: 15px;
+`;
+
+const PressLink = styled.a`
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const PressDate = styled.span`
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+`;
+
 const App = () => {
   return (
     <div>
@@ -169,7 +251,9 @@ const App = () => {
               <PublicationParagraph>Aditya Gunturu, Yi Wen, <strong>Nandi Zhang</strong>, Jarin Thundathil, Rubaiat Habib Kazi, Ryo Suzuki</PublicationParagraph>
               <ItalicParagraph>In Proceedings of the Annual ACM Symposium on User Interface Software and Technology (UIST) 2024</ItalicParagraph>
               <ButtonContainer>
+                <Button href="https://dl.acm.org/doi/10.1145/3654777.3676392">DOI</Button>
                 <Button href={agppdf}>PDF</Button>
+                <Button href="https://www.youtube.com/watch?v=GqZnQJpfFSg">Video</Button>
               </ButtonContainer>
             </PublicationContent>
           </PublicationItem>
@@ -180,12 +264,64 @@ const App = () => {
               <PublicationParagraph>Peixuan Xiong, Yukai Zhang, <strong>Nandi Zhang</strong>, Shihan Fu, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan</PublicationParagraph>
               <ItalicParagraph>In Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI) 2024</ItalicParagraph>
               <ButtonContainer>
+                <Button href="https://dl.acm.org/doi/10.1145/3613904.3642912">DOI</Button>
                 <Button href={reachpdf}>PDF</Button>
               </ButtonContainer>
             </PublicationContent>
           </PublicationItem>
         </PublicationList>
       </PublicationsSection>
+      <ProjectsSection>
+        <ProjectHeading>Projects</ProjectHeading>
+        <ProjectList>
+          <ProjectItem>
+            <ProjectImage src={project1Pic} alt="Project 1" />
+            <ProjectContent>
+              <div>
+                <ProjectHeader>
+                  <ProjectTitle>Unsupervised Prototypical GAN for Image-to-Image Translation</ProjectTitle>
+                  <ProjectDate>2021 Fall</ProjectDate>
+                </ProjectHeader>
+                <ProjectDescription>
+                  Proposed and trained an unsupervised prototypical GAN for I2I translation between heterogeneous domains.
+                </ProjectDescription>
+              </div>
+              <ButtonContainer>
+                <Button href={project1Pdf}>PDF</Button>
+              </ButtonContainer>
+            </ProjectContent>
+          </ProjectItem>
+
+          <ProjectItem>
+            <ProjectImage src={project2Pic} alt="Project 2" />
+            <ProjectContent>
+              <div>
+                <ProjectHeader>
+                  <ProjectTitle>Independent Human-Robot Collaboration Authoring in VR</ProjectTitle>
+                  <ProjectDate>2022 Spring</ProjectDate>
+                </ProjectHeader>
+                <ProjectDescription>
+                  Proposed and implemented a snapshot mechanism to enable single-person authoring of transitional human-robot collaboration in VR.
+                </ProjectDescription>
+              </div>
+              <ButtonContainer>
+                <Button href="https://youtu.be/hAN93H7TwHA">Video</Button>
+              </ButtonContainer>
+            </ProjectContent>
+          </ProjectItem>
+        </ProjectList>
+      </ProjectsSection>
+      <PressCoverageSection>
+        <PressCoverageHeading>Press Coverage</PressCoverageHeading>
+        <PressLinks>
+          <PressItem>
+            <PressLink href="https://youtu.be/qq6sQMP-7so?si=QTaTuyyzHihmvOiA">
+              <span>"Turning Your Dream into Reality One Step at a Time" - HKUST Admission</span>
+              <PressDate>Feb 2023</PressDate>
+            </PressLink>
+          </PressItem>
+        </PressLinks>
+      </PressCoverageSection>
     </div>
   );
 };
