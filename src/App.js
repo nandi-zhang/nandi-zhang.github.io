@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 import profilePic from './IMG_6649.JPG';
-import CV from './Nandi_s_Résumé.pdf';
+import CV from './Nandi_s_Resume.pdf';
 import agp from './uist-24-augmented-physics.png';
 import agppdf from './uist-24-augmented-physics.pdf';
 import reach from './chi-24-to-reach-the-unreachable.png';
