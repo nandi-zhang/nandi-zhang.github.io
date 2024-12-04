@@ -235,7 +235,7 @@ const App = () => {
           <IconLink href="https://x.com/nandizhang_">𝕏 X</IconLink>
         </LeftColumn>
         <RightColumn>
-          <h1>Nandi Zhang</h1>
+          <h1>Nandi Zhang | 张南迪</h1>
           <p>I am a second-year MSc student in Computer Science with a specialization in Computational Neuroscience at <a href="https://www.ucalgary.ca/" style={{ color: 'black'}}>University of Calgary</a>, advised by <a href='https://ryosuzuki.org/' style={{ color: 'black'}}>Prof. Ryo Suzuki</a>.</p>
           <p>My research in <strong>Human-Computer Interaction (HCI)</strong> focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to computationally explore and explain how computers that we built shape our perception, capabilities and behaviors.</p>
           <p>Prior to joining UCalgary, I received my bachelor's degree in Data Science and Technology from <a href="https://hkust.edu.hk/" style={{ color: 'black'}}>Hong Kong University of Science and Technology</a>, advised by <a href='https://www.cse.ust.hk/~mxj/' style={{ color: 'black'}}>Prof. Xiaojuan Ma</a>.</p>
