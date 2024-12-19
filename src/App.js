@@ -21,7 +21,8 @@ const Container = styled.div`
   gap: 20px;
   max-width: 800px;
   margin: 50px auto;
-  padding: 0 20px;
+  padding: 20px 20px 0;
+  margin-top: 70px; // Add this line to prevent content from going under the nav bar
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -224,6 +225,28 @@ const PressDate = styled.span`
   white-space: nowrap;
 `;
 
+const NavBar = styled.nav`
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1000;
+`;
+
+const NavLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`;
+
 const MainPage = () => {
   return (
     <div>
@@ -331,6 +354,9 @@ const MainPage = () => {
 const App = () => {
   return (
     <Router>
+      <NavBar>
+        <NavLink to="/portfolio">Portfolio</NavLink>
+      </NavBar>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
