@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.885d8127.js",
+    "main.js": "/static/js/main.fee878f3.js",
     "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
     "static/media/chi-25-reality-summary.pdf": "/static/media/chi-25-reality-summary.68927320245f13fe7afa.pdf",
     "static/media/CHI_25_From_Following_to_Understanding_Clean.pdf": "/static/media/CHI_25_From_Following_to_Understanding_Clean.253ec80df96d11e60aaa.pdf",
@@ -25,11 +25,11 @@
     "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.a727da9928bbad812be1.pdf",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.885d8127.js.map": "/static/js/main.885d8127.js.map",
+    "main.fee878f3.js.map": "/static/js/main.fee878f3.js.map",
     "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.885d8127.js"
+    "static/js/main.fee878f3.js"
   ]
 }
