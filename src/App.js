@@ -7,6 +7,8 @@ import agppdf from './uist-24-augmented-physics.pdf';
 import reach from './chi-24-to-reach-the-unreachable.png';
 import reachpdf from './chi-24-to-reach-the-unreachable.pdf';
 import styled from 'styled-components';
+import Portfolio from './components/portfolio';
+import ProjectPage from './components/ProjectPage';
 
 import project1Pic from './I2IGAN.png';
 import project1Pdf from './Unsupervised-Prototypical-GAN.pdf';
@@ -222,107 +224,119 @@ const PressDate = styled.span`
   white-space: nowrap;
 `;
 
-const App = () => {
+const MainPage = () => {
   return (
     <div>
-      <Container>
-        <LeftColumn>
-          <ProfileImage src={profilePic} alt="Profile Pic" />
-          <IconLink href="mailto:nandi.zhang@ucalgary.ca">📧 nandi.zhang@ucalgary.ca</IconLink>
-          <IconLink href={CV} target="_blank" rel="noopener noreferrer">📄 CV</IconLink>
-          <IconLink href="https://scholar.google.ca/citations?user=zvPQR94AAAAJ&hl=en">🎓 Google Scholar</IconLink>
-          <IconLink href="https://ca.linkedin.com/in/nandi-zhang">💼 LinkedIn</IconLink>
-          <IconLink href="https://x.com/nandizhang_">𝕏 X</IconLink>
-        </LeftColumn>
-        <RightColumn>
-          <h1>Nandi Zhang | 张南迪</h1>
-          <p>I am a second-year MSc student in Computer Science with a specialization in Computational Neuroscience at <a href="https://www.ucalgary.ca/" style={{ color: 'black'}}>University of Calgary</a>, advised by <a href='https://ryosuzuki.org/' style={{ color: 'black'}}>Prof. Ryo Suzuki</a>.</p>
-          <p>My research in <strong>Human-Computer Interaction (HCI)</strong> focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to computationally explore and explain how computers that we built shape our perception, capabilities and behaviors.</p>
-          <p>Prior to joining UCalgary, I received my bachelor's degree in Data Science and Technology from <a href="https://hkust.edu.hk/" style={{ color: 'black'}}>Hong Kong University of Science and Technology</a>, advised by <a href='https://www.cse.ust.hk/~mxj/' style={{ color: 'black'}}>Prof. Xiaojuan Ma</a>.</p>
-        </RightColumn>
-      </Container>
-      <PublicationsSection>
-        <PublicationHeading>Publications</PublicationHeading>
-        <PublicationList>
-          <PublicationItem>
-            <PublicationImage src={agp} alt="Publication 1" />
-            <PublicationContent>
-              <PublicationTitle>Augmented Physics: Creating Interactive and Embedded Physics Simulations from Static Textbook Diagrams</PublicationTitle>
-              <PublicationParagraph>Aditya Gunturu, Yi Wen, <strong>Nandi Zhang</strong>, Jarin Thundathil, Rubaiat Habib Kazi, Ryo Suzuki</PublicationParagraph>
-              <ItalicParagraph>In Proceedings of the Annual ACM Symposium on User Interface Software and Technology (UIST) 2024</ItalicParagraph>
-              <ButtonContainer>
-                <Button href="https://dl.acm.org/doi/10.1145/3654777.3676392">DOI</Button>
-                <Button href={agppdf}>PDF</Button>
-                <Button href="https://www.youtube.com/watch?v=GqZnQJpfFSg">Video</Button>
-              </ButtonContainer>
-            </PublicationContent>
-          </PublicationItem>
-          <PublicationItem>
-            <PublicationImage src={reach} alt="Publication 2" />
-            <PublicationContent>
-              <PublicationTitle>To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation</PublicationTitle>
-              <PublicationParagraph>Peixuan Xiong, Yukai Zhang, <strong>Nandi Zhang</strong>, Shihan Fu, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan</PublicationParagraph>
-              <ItalicParagraph>In Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI) 2024</ItalicParagraph>
-              <ButtonContainer>
-                <Button href="https://dl.acm.org/doi/10.1145/3613904.3642912">DOI</Button>
-                <Button href={reachpdf}>PDF</Button>
-              </ButtonContainer>
-            </PublicationContent>
-          </PublicationItem>
-        </PublicationList>
-      </PublicationsSection>
-      <ProjectsSection>
-        <ProjectHeading>Projects</ProjectHeading>
-        <ProjectList>
-          <ProjectItem>
-            <ProjectImage src={project1Pic} alt="Project 1" />
-            <ProjectContent>
-              <div>
-                <ProjectHeader>
-                  <ProjectTitle>Unsupervised Prototypical GAN for Image-to-Image Translation</ProjectTitle>
-                  <ProjectDate>2021 Fall</ProjectDate>
-                </ProjectHeader>
-                <ProjectDescription>
-                  Proposed and trained an unsupervised prototypical GAN for I2I translation between heterogeneous domains.
-                </ProjectDescription>
-              </div>
-              <ButtonContainer>
-                <Button href={project1Pdf}>PDF</Button>
-              </ButtonContainer>
-            </ProjectContent>
-          </ProjectItem>
+    <Container>
+      <LeftColumn>
+        <ProfileImage src={profilePic} alt="Profile Pic" />
+        <IconLink href="mailto:nandi.zhang@ucalgary.ca">📧 nandi.zhang@ucalgary.ca</IconLink>
+        <IconLink href={CV} target="_blank" rel="noopener noreferrer">📄 CV</IconLink>
+        <IconLink href="https://scholar.google.ca/citations?user=zvPQR94AAAAJ&hl=en">🎓 Google Scholar</IconLink>
+        <IconLink href="https://ca.linkedin.com/in/nandi-zhang">💼 LinkedIn</IconLink>
+        <IconLink href="https://x.com/nandizhang_">𝕏 X</IconLink>
+      </LeftColumn>
+      <RightColumn>
+        <h1>Nandi Zhang | 张南迪</h1>
+        <p>I am a second-year MSc student in Computer Science with a specialization in Computational Neuroscience at <a href="https://www.ucalgary.ca/" style={{ color: 'black'}}>University of Calgary</a>, advised by <a href='https://ryosuzuki.org/' style={{ color: 'black'}}>Prof. Ryo Suzuki</a>.</p>
+        <p>My research in <strong>Human-Computer Interaction (HCI)</strong> focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to computationally explore and explain how computers that we built shape our perception, capabilities and behaviors.</p>
+        <p>Prior to joining UCalgary, I received my bachelor's degree in Data Science and Technology from <a href="https://hkust.edu.hk/" style={{ color: 'black'}}>Hong Kong University of Science and Technology</a>, advised by <a href='https://www.cse.ust.hk/~mxj/' style={{ color: 'black'}}>Prof. Xiaojuan Ma</a>.</p>
+      </RightColumn>
+    </Container>
+    <PublicationsSection>
+      <PublicationHeading>Publications</PublicationHeading>
+      <PublicationList>
+        <PublicationItem>
+          <PublicationImage src={agp} alt="Publication 1" />
+          <PublicationContent>
+            <PublicationTitle>Augmented Physics: Creating Interactive and Embedded Physics Simulations from Static Textbook Diagrams</PublicationTitle>
+            <PublicationParagraph>Aditya Gunturu, Yi Wen, <strong>Nandi Zhang</strong>, Jarin Thundathil, Rubaiat Habib Kazi, Ryo Suzuki</PublicationParagraph>
+            <ItalicParagraph>In Proceedings of the Annual ACM Symposium on User Interface Software and Technology (UIST) 2024</ItalicParagraph>
+            <ButtonContainer>
+              <Button href="https://dl.acm.org/doi/10.1145/3654777.3676392">DOI</Button>
+              <Button href={agppdf}>PDF</Button>
+              <Button href="https://www.youtube.com/watch?v=GqZnQJpfFSg">Video</Button>
+            </ButtonContainer>
+          </PublicationContent>
+        </PublicationItem>
+        <PublicationItem>
+          <PublicationImage src={reach} alt="Publication 2" />
+          <PublicationContent>
+            <PublicationTitle>To Reach the Unreachable: Exploring the Potential of VR Hand Redirection for Upper Limb Rehabilitation</PublicationTitle>
+            <PublicationParagraph>Peixuan Xiong, Yukai Zhang, <strong>Nandi Zhang</strong>, Shihan Fu, Xin Li, Yadan Zheng, Jinni Zhou, Xiquan Hu, Mingming Fan</PublicationParagraph>
+            <ItalicParagraph>In Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI) 2024</ItalicParagraph>
+            <ButtonContainer>
+              <Button href="https://dl.acm.org/doi/10.1145/3613904.3642912">DOI</Button>
+              <Button href={reachpdf}>PDF</Button>
+            </ButtonContainer>
+          </PublicationContent>
+        </PublicationItem>
+      </PublicationList>
+    </PublicationsSection>
+    <ProjectsSection>
+      <ProjectHeading>Projects</ProjectHeading>
+      <ProjectList>
+        <ProjectItem>
+          <ProjectImage src={project1Pic} alt="Project 1" />
+          <ProjectContent>
+            <div>
+              <ProjectHeader>
+                <ProjectTitle>Unsupervised Prototypical GAN for Image-to-Image Translation</ProjectTitle>
+                <ProjectDate>2021 Fall</ProjectDate>
+              </ProjectHeader>
+              <ProjectDescription>
+                Proposed and trained an unsupervised prototypical GAN for I2I translation between heterogeneous domains.
+              </ProjectDescription>
+            </div>
+            <ButtonContainer>
+              <Button href={project1Pdf}>PDF</Button>
+            </ButtonContainer>
+          </ProjectContent>
+        </ProjectItem>
 
-          <ProjectItem>
-            <ProjectImage src={project2Pic} alt="Project 2" />
-            <ProjectContent>
-              <div>
-                <ProjectHeader>
-                  <ProjectTitle>Independent Human-Robot Collaboration Authoring in VR</ProjectTitle>
-                  <ProjectDate>2022 Spring</ProjectDate>
-                </ProjectHeader>
-                <ProjectDescription>
-                  Proposed and implemented a snapshot mechanism to enable single-person authoring of transitional human-robot collaboration in VR.
-                </ProjectDescription>
-              </div>
-              <ButtonContainer>
-                <Button href="https://youtu.be/hAN93H7TwHA">Video</Button>
-              </ButtonContainer>
-            </ProjectContent>
-          </ProjectItem>
-        </ProjectList>
-      </ProjectsSection>
-      <PressCoverageSection>
-        <PressCoverageHeading>Media</PressCoverageHeading>
-        <PressLinks>
-          <PressItem>
-            <PressLink href="https://youtu.be/qq6sQMP-7so?si=QTaTuyyzHihmvOiA">
-              <span>"Turning Your Dream into Reality One Step at a Time" - HKUST Admission</span>
-              <PressDate>Feb 2023</PressDate>
-            </PressLink>
-          </PressItem>
-        </PressLinks>
-      </PressCoverageSection>
-    </div>
+        <ProjectItem>
+          <ProjectImage src={project2Pic} alt="Project 2" />
+          <ProjectContent>
+            <div>
+              <ProjectHeader>
+                <ProjectTitle>Independent Human-Robot Collaboration Authoring in VR</ProjectTitle>
+                <ProjectDate>2022 Spring</ProjectDate>
+              </ProjectHeader>
+              <ProjectDescription>
+                Proposed and implemented a snapshot mechanism to enable single-person authoring of transitional human-robot collaboration in VR.
+              </ProjectDescription>
+            </div>
+            <ButtonContainer>
+              <Button href="https://youtu.be/hAN93H7TwHA">Video</Button>
+            </ButtonContainer>
+          </ProjectContent>
+        </ProjectItem>
+      </ProjectList>
+    </ProjectsSection>
+    <PressCoverageSection>
+      <PressCoverageHeading>Media</PressCoverageHeading>
+      <PressLinks>
+        <PressItem>
+          <PressLink href="https://youtu.be/qq6sQMP-7so?si=QTaTuyyzHihmvOiA">
+            <span>"Turning Your Dream into Reality One Step at a Time" - HKUST Admission</span>
+            <PressDate>Feb 2023</PressDate>
+          </PressLink>
+        </PressItem>
+      </PressLinks>
+    </PressCoverageSection>
+  </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:id" element={<ProjectPage />} />
+      </Routes>
+    </Router>
   );
 };
 
