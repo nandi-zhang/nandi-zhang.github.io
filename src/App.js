@@ -261,7 +261,7 @@ const MainPage = () => {
       </LeftColumn>
       <RightColumn>
         <h1>Nandi Zhang | 张南迪</h1>
-        <p>I am a second-year MSc student in Computer Science with a specialization in Computational Neuroscience at <a href="https://www.ucalgary.ca/" style={{ color: 'black'}}>University of Calgary</a>, advised by <a href='https://ryosuzuki.org/' style={{ color: 'black'}}>Prof. Ryo Suzuki</a>.</p>
+        <p>I am a second-year MSc student in Computer Science at <a href="https://www.ucalgary.ca/" style={{ color: 'black'}}>University of Calgary</a>, advised by <a href='https://ryosuzuki.org/' style={{ color: 'black'}}>Prof. Ryo Suzuki</a>. I will join the <a href="https://rochester-bear-lab.github.io/index" style={{ color: 'black'}}>BEAR lab</a> at the <a href="https://www.rochester.edu/" style={{ color: 'black'}}>University of Rochester</a> as a PhD student, working with <a href="https://rochester-bear-lab.github.io/yukang" style={{ color: 'black'}}>Prof. Yukang Yan</a>.</p>
         <p>My research in <strong>Human-Computer Interaction (HCI)</strong> focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to computationally explore and explain how computers that we built shape our perception, capabilities and behaviors.</p>
         <p>Prior to joining UCalgary, I received my bachelor's degree in Data Science and Technology from <a href="https://hkust.edu.hk/" style={{ color: 'black'}}>Hong Kong University of Science and Technology</a>, advised by <a href='https://www.cse.ust.hk/~mxj/' style={{ color: 'black'}}>Prof. Xiaojuan Ma</a>.</p>
       </RightColumn>
@@ -296,57 +296,6 @@ const MainPage = () => {
         </PublicationItem>
       </PublicationList>
     </PublicationsSection>
-    <ProjectsSection>
-      <ProjectHeading>Projects</ProjectHeading>
-      <ProjectList>
-        <ProjectItem>
-          <ProjectImage src={project1Pic} alt="Project 1" />
-          <ProjectContent>
-            <div>
-              <ProjectHeader>
-                <ProjectTitle>Unsupervised Prototypical GAN for Image-to-Image Translation</ProjectTitle>
-                <ProjectDate>2021 Fall</ProjectDate>
-              </ProjectHeader>
-              <ProjectDescription>
-                Proposed and trained an unsupervised prototypical GAN for I2I translation between heterogeneous domains.
-              </ProjectDescription>
-            </div>
-            <ButtonContainer>
-              <Button href={project1Pdf}>PDF</Button>
-            </ButtonContainer>
-          </ProjectContent>
-        </ProjectItem>
-
-        <ProjectItem>
-          <ProjectImage src={project2Pic} alt="Project 2" />
-          <ProjectContent>
-            <div>
-              <ProjectHeader>
-                <ProjectTitle>Independent Human-Robot Collaboration Authoring in VR</ProjectTitle>
-                <ProjectDate>2022 Spring</ProjectDate>
-              </ProjectHeader>
-              <ProjectDescription>
-                Proposed and implemented a snapshot mechanism to enable single-person authoring of transitional human-robot collaboration in VR.
-              </ProjectDescription>
-            </div>
-            <ButtonContainer>
-              <Button href="https://youtu.be/hAN93H7TwHA">Video</Button>
-            </ButtonContainer>
-          </ProjectContent>
-        </ProjectItem>
-      </ProjectList>
-    </ProjectsSection>
-    <PressCoverageSection>
-      <PressCoverageHeading>Media</PressCoverageHeading>
-      <PressLinks>
-        <PressItem>
-          <PressLink href="https://youtu.be/qq6sQMP-7so?si=QTaTuyyzHihmvOiA">
-            <span>"Turning Your Dream into Reality One Step at a Time" - HKUST Admission</span>
-            <PressDate>Feb 2023</PressDate>
-          </PressLink>
-        </PressItem>
-      </PressLinks>
-    </PressCoverageSection>
   </div>
   );
 };
@@ -354,13 +303,8 @@ const MainPage = () => {
 const App = () => {
   return (
     <Router>
-      <NavBar>
-        <NavLink to="/portfolio">Portfolio</NavLink>
-      </NavBar>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/portfolio/:id" element={<ProjectPage />} />
       </Routes>
     </Router>
   );
