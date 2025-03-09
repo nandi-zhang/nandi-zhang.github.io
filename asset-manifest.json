@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.330dbde2.js",
+    "main.js": "/static/js/main.3373c7b5.js",
     "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
     "static/media/chi-25-reality-summary.pdf": "/static/media/chi-25-reality-summary.68927320245f13fe7afa.pdf",
     "static/media/CHI_25_From_Following_to_Understanding_Clean.pdf": "/static/media/CHI_25_From_Following_to_Understanding_Clean.253ec80df96d11e60aaa.pdf",
     "static/media/Unsupervised-Prototypical-GAN.pdf": "/static/media/Unsupervised-Prototypical-GAN.351000de6bbba5e779d5.pdf",
-    "static/media/IMG_6649.JPG": "/static/media/IMG_6649.5dbe26d7f5ea9cb2e9a3.JPG",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
+    "static/media/IMG_9003.JPG": "/static/media/IMG_9003.2c2d02ec92f423fb5027.JPG",
     "static/media/chi-24-to-reach-the-unreachable.png": "/static/media/chi-24-to-reach-the-unreachable.435a0f2a6a5eacd5588b.png",
     "static/media/I2IGAN.png": "/static/media/I2IGAN.798f3105ddabac96aa42.png",
     "static/media/chi-25-social-robots.pdf": "/static/media/chi-25-social-robots.4181a37f061247fc6c9b.pdf",
@@ -25,11 +25,11 @@
     "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.d3cd8b5bc0312c658ab7.pdf",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.330dbde2.js.map": "/static/js/main.330dbde2.js.map",
+    "main.3373c7b5.js.map": "/static/js/main.3373c7b5.js.map",
     "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.330dbde2.js"
+    "static/js/main.3373c7b5.js"
   ]
 }
