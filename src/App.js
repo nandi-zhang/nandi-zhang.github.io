@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import profilePic from './IMG_6649.JPG';
+import profilePic from './IMG_9003.JPG';
 import CV from './Nandi_s_Resume.pdf';
 import agp from './uist-24-augmented-physics.png';
 import agppdf from './uist-24-augmented-physics.pdf';
@@ -39,7 +39,7 @@ const RightColumn = styled.div``;
 
 const ProfileImage = styled.img`
   width: 200px;
-  height: 200px;
+  height: 260px;
   object-fit: cover;
   margin-bottom: 20px;
 
