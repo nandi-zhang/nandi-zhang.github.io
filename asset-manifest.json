@@ -1,35 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.546f793d.js",
+    "main.css": "/static/css/main.c047f815.css",
+    "main.js": "/static/js/main.813bb5ce.js",
     "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
-    "static/media/chi-25-reality-summary.pdf": "/static/media/chi-25-reality-summary.68927320245f13fe7afa.pdf",
-    "static/media/CHI_25_From_Following_to_Understanding_Clean.pdf": "/static/media/CHI_25_From_Following_to_Understanding_Clean.253ec80df96d11e60aaa.pdf",
-    "static/media/Unsupervised-Prototypical-GAN.pdf": "/static/media/Unsupervised-Prototypical-GAN.351000de6bbba5e779d5.pdf",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
     "static/media/IMG_9003.JPG": "/static/media/IMG_9003.2c2d02ec92f423fb5027.JPG",
     "static/media/chi-24-to-reach-the-unreachable.png": "/static/media/chi-24-to-reach-the-unreachable.435a0f2a6a5eacd5588b.png",
-    "static/media/I2IGAN.png": "/static/media/I2IGAN.798f3105ddabac96aa42.png",
-    "static/media/chi-25-social-robots.pdf": "/static/media/chi-25-social-robots.4181a37f061247fc6c9b.pdf",
     "static/media/uist-24-augmented-physics.png": "/static/media/uist-24-augmented-physics.1894da96c36758ae22f0.png",
-    "static/media/study-overview.png": "/static/media/study-overview.79330c0a42d604cd57f5.png",
+    "static/media/chi-25-from-following-to-understanding.png": "/static/media/chi-25-from-following-to-understanding.ac8b749effccb5c631d7.png",
     "static/media/chi-24-to-reach-the-unreachable.pdf": "/static/media/chi-24-to-reach-the-unreachable.b959586ec50f4c212296.pdf",
-    "static/media/SnapVR.png": "/static/media/SnapVR.f7254bdf174b98773872.png",
-    "static/media/uist-24-agp.png": "/static/media/uist-24-agp.5e414c8909b196316106.png",
-    "static/media/reflective-prompts-application.png": "/static/media/reflective-prompts-application.6efc03e19f332f40e10d.png",
-    "static/media/chi-25-reflective-prompts.png": "/static/media/chi-25-reflective-prompts.df422619c8003ec2916f.png",
-    "static/media/chi-25-reality-summary.png": "/static/media/chi-25-reality-summary.448c7a441966f758fe50.png",
-    "static/media/chi-24-rehab.png": "/static/media/chi-24-rehab.79ac23b4f381f61c1dd7.png",
-    "static/media/chi-25-social-robot-illustration.png": "/static/media/chi-25-social-robot-illustration.b41130a90f3862305333.png",
-    "static/media/chi-25-social-robots.png": "/static/media/chi-25-social-robots.cffe505d38f44a1b5feb.png",
-    "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.518b1be13d2c218535f2.pdf",
+    "static/media/chi-25-signaling-human-intentions.png": "/static/media/chi-25-signaling-human-intentions.8a6a6c1f45ef85b8e1ae.png",
+    "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.85e3a433ace582f637ab.pdf",
     "index.html": "/index.html",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.546f793d.js.map": "/static/js/main.546f793d.js.map",
+    "main.c047f815.css.map": "/static/css/main.c047f815.css.map",
+    "main.813bb5ce.js.map": "/static/js/main.813bb5ce.js.map",
     "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.546f793d.js"
+    "static/css/main.c047f815.css",
+    "static/js/main.813bb5ce.js"
   ]
 }
