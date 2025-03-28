@@ -42,7 +42,8 @@ const MainPage = () => {
               where I was advised by{' '}
               <a href='https://www.cse.ust.hk/~mxj/' className="clean-link">Prof. Xiaojuan Ma</a>.
             </p>
-            <p>My research focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to computationally explore and explain how computers that we built shape our perception, capabilities and behaviors.</p>
+            <p>My research focuses on <strong>Mixed Reality</strong> and <strong>Human-Robot Interaction</strong>. I seek to scientifically explore and explain how computers that we built shape our perception, capabilities and behaviors.
+            Before transitioning to HCI, I worked in machine learning and robotics engineering.</p>
           </section>
 
           <div className="news-section">
