@@ -27,16 +27,16 @@ const MainPage = () => {
           <section className="intro-section">
             <h2>Nandi Zhang | 张南迪</h2>
             <p className="bio-text">
-              I am a second-year MSc student in Computer Science at{' '}
+              I am a PhD student in Computer Science of the{' '}
+              <a href="https://rochester-bear-lab.github.io/index" className="clean-link">BEAR lab</a>{' '}
+              at the{' '}
+              <a href="https://www.rochester.edu/" className="clean-link">University of Rochester</a>,
+              working with{' '}
+              <a href="https://rochester-bear-lab.github.io/yukang" className="clean-link">Prof. Yukang Yan</a>.
+              Before this, I got my master's degree in Computer Science from the {' '}
               <a href="https://www.ucalgary.ca/" className="clean-link">University of Calgary</a>,
               advised by{' '}
               <a href='https://ryosuzuki.org/' className="clean-link">Prof. Ryo Suzuki</a>.
-              I will join the{' '}
-              <a href="https://rochester-bear-lab.github.io/index" className="clean-link">BEAR lab</a>{' '}
-              at the{' '}
-              <a href="https://www.rochester.edu/" className="clean-link">University of Rochester</a>{' '}
-              as a PhD student in Computer Science, working with{' '}
-              <a href="https://rochester-bear-lab.github.io/yukang" className="clean-link">Prof. Yukang Yan</a>.
               I received my bachelor's degree in Data Science and Technology from the{' '}
               <a href="https://hkust.edu.hk" className="clean-link">Hong Kong University of Science and Technology</a>,
               where I was advised by{' '}
