@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c047f815.css",
-    "main.js": "/static/js/main.df45f79b.js",
+    "main.js": "/static/js/main.bdf66c87.js",
     "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
     "static/media/IMG_9003.JPG": "/static/media/IMG_9003.2c2d02ec92f423fb5027.JPG",
@@ -13,11 +13,11 @@
     "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.85e3a433ace582f637ab.pdf",
     "index.html": "/index.html",
     "main.c047f815.css.map": "/static/css/main.c047f815.css.map",
-    "main.df45f79b.js.map": "/static/js/main.df45f79b.js.map",
+    "main.bdf66c87.js.map": "/static/js/main.bdf66c87.js.map",
     "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c047f815.css",
-    "static/js/main.df45f79b.js"
+    "static/js/main.bdf66c87.js"
   ]
 }
