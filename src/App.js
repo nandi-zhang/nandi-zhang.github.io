@@ -49,6 +49,11 @@ const MainPage = () => {
           <div className="news-section">
             <h2>Latest News</h2>
             <div className="news-item">
+              <h3 className="news-title">UIST 2025</h3>
+              <span className="news-date">Sept 28, 2025</span>
+              <p className="news-description">I will co-organize the <strong>Assessible Cyber-Physical Activities</strong> Workshop!</p>
+            </div>
+            <div className="news-item">
               <h3 className="news-title">PhD Offer Accepted</h3>
               <span className="news-date">Feb 25, 2025</span>
               <p className="news-description">I will be Yukang's PhD student. :)</p>
