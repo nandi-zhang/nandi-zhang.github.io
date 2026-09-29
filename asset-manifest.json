@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6a1ac335.css",
-    "main.js": "/static/js/main.e947ee01.js",
+    "main.js": "/static/js/main.ff0b422b.js",
     "static/media/uist-26-remapping-time.pdf": "/static/media/uist-26-remapping-time.e45be34afbda688b1d12.pdf",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
     "static/media/portrait.jpg": "/static/media/portrait.2c2d02ec92f423fb5027.jpg",
@@ -17,10 +17,10 @@
     "static/media/remapping-demos.jpg": "/static/media/remapping-demos.08da8b707e8a2a8093a3.jpg",
     "index.html": "/index.html",
     "main.6a1ac335.css.map": "/static/css/main.6a1ac335.css.map",
-    "main.e947ee01.js.map": "/static/js/main.e947ee01.js.map"
+    "main.ff0b422b.js.map": "/static/js/main.ff0b422b.js.map"
   },
   "entrypoints": [
     "static/css/main.6a1ac335.css",
-    "static/js/main.e947ee01.js"
+    "static/js/main.ff0b422b.js"
   ]
 }
