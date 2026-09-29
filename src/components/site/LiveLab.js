@@ -130,14 +130,18 @@ function renderSynthetic(ctx, ts, rate, w, h) {
   const s = w / W;
   drawTable(ctx, w, h);
   drawCountdown(ctx, ts, s);
-  const win = Math.max(0.002, EXPOSURE * Math.max(rate, 0.05));
-  const N = 9;
+  // Motion blur trails *behind* the current moment: the solid card is always drawn at
+  // the displayed time ts. Trail length scales with playback rate but is capped, so a
+  // fast catch-up doesn't smear the card back to where it was a second ago.
+  const win = EXPOSURE * Math.min(Math.max(rate, 0.05), 1.5);
+  const N = 8;
   ctx.save();
-  ctx.globalAlpha = 0.22;
-  for (let j = 0; j < N; j += 1) drawCardAt(ctx, ts - (win * j) / (N - 1), s);
+  for (let j = N; j >= 1; j -= 1) {
+    ctx.globalAlpha = 0.28 * (1 - j / (N + 1));
+    drawCardAt(ctx, ts - (win * j) / N, s);
+  }
   ctx.restore();
-  drawCardAt(ctx, ts - win * 0.5, s);
-  ctx.globalAlpha = 1;
+  drawCardAt(ctx, ts, s);
 }
 
 export default function LiveLab() {
