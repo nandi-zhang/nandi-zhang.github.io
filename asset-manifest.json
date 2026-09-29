@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.c047f815.css",
-    "main.js": "/static/js/main.cab994e2.js",
-    "static/js/453.a0345f9e.chunk.js": "/static/js/453.a0345f9e.chunk.js",
+    "main.css": "/static/css/main.6a1ac335.css",
+    "main.js": "/static/js/main.e947ee01.js",
+    "static/media/uist-26-remapping-time.pdf": "/static/media/uist-26-remapping-time.e45be34afbda688b1d12.pdf",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
-    "static/media/IMG_9003.JPG": "/static/media/IMG_9003.2c2d02ec92f423fb5027.JPG",
-    "static/media/chi-24-to-reach-the-unreachable.png": "/static/media/chi-24-to-reach-the-unreachable.435a0f2a6a5eacd5588b.png",
-    "static/media/uist-24-augmented-physics.png": "/static/media/uist-24-augmented-physics.1894da96c36758ae22f0.png",
-    "static/media/chi-25-from-following-to-understanding.png": "/static/media/chi-25-from-following-to-understanding.ac8b749effccb5c631d7.png",
+    "static/media/portrait.jpg": "/static/media/portrait.2c2d02ec92f423fb5027.jpg",
+    "static/media/chi-25-signaling-human-intentions.pdf": "/static/media/chi-25-signaling-human-intentions.4181a37f061247fc6c9b.pdf",
     "static/media/chi-24-to-reach-the-unreachable.pdf": "/static/media/chi-24-to-reach-the-unreachable.b959586ec50f4c212296.pdf",
-    "static/media/chi-25-signaling-human-intentions.png": "/static/media/chi-25-signaling-human-intentions.8a6a6c1f45ef85b8e1ae.png",
-    "static/media/Nandi_s_Resume.pdf": "/static/media/Nandi_s_Resume.3708dbcff9bdec685bd4.pdf",
+    "static/media/reach-unreachable.jpg": "/static/media/reach-unreachable.2c2cb90fe03bb668d389.jpg",
+    "static/media/following-to-understanding.jpg": "/static/media/following-to-understanding.d301ac049f652526fb32.jpg",
+    "static/media/Nandi_Zhang_CV.pdf": "/static/media/Nandi_Zhang_CV.eb6272197ca64e3617b5.pdf",
+    "static/media/remapping-time.jpg": "/static/media/remapping-time.439586ac2888b76e028c.jpg",
+    "static/media/reality-summary.jpg": "/static/media/reality-summary.8d219c4dce4b2795d87a.jpg",
+    "static/media/augmented-physics.jpg": "/static/media/augmented-physics.620e1b709d2808307261.jpg",
+    "static/media/service-robots.jpg": "/static/media/service-robots.7c5b602f3ce37d0d03a0.jpg",
+    "static/media/remapping-demos.jpg": "/static/media/remapping-demos.08da8b707e8a2a8093a3.jpg",
     "index.html": "/index.html",
-    "main.c047f815.css.map": "/static/css/main.c047f815.css.map",
-    "main.cab994e2.js.map": "/static/js/main.cab994e2.js.map",
-    "453.a0345f9e.chunk.js.map": "/static/js/453.a0345f9e.chunk.js.map"
+    "main.6a1ac335.css.map": "/static/css/main.6a1ac335.css.map",
+    "main.e947ee01.js.map": "/static/js/main.e947ee01.js.map"
   },
   "entrypoints": [
-    "static/css/main.c047f815.css",
-    "static/js/main.cab994e2.js"
+    "static/css/main.6a1ac335.css",
+    "static/js/main.e947ee01.js"
   ]
 }
