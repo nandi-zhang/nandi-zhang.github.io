@@ -18,10 +18,10 @@ export function Home() {
           <h1>Hi, I’m Nandi.</h1>
           <p>
             I’m a PhD student in Computer Science at the <a href="https://www.rochester.edu/">University of Rochester</a>,
-            working with <a href="https://rochester-bear-lab.github.io/yukang">Yukang Yan</a> in the{' '}
+            working with <a href="https://rochester-bear-lab.github.io/yukang">Prof. Yukang Yan</a> in the{' '}
             <a href="https://rochester-bear-lab.github.io/index">BEAR Lab</a>. I did my MSc in Computer Science with{' '}
-            <a href="https://ryosuzuki.org/">Ryo Suzuki</a> at the <a href="https://ucalgary.ca/">University of Calgary</a>{' '}
-            and my BSc in Data Science with <a href="https://www.cse.ust.hk/~mxj/">Xiaojuan Ma</a> at{' '}
+            <a href="https://ryosuzuki.org/">Prof. Ryo Suzuki</a> at the <a href="https://ucalgary.ca/">University of Calgary</a>{' '}
+            and my BSc in Data Science with <a href="https://www.cse.ust.hk/~mxj/">Prof. Xiaojuan Ma</a> at{' '}
             <a href="https://hkust.edu.hk/">HKUST</a>, and spent a year as a research intern at{' '}
             <a href="https://www.sensetime.com/en">SenseTime</a>.
           </p>
