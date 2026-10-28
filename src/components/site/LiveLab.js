@@ -13,9 +13,22 @@ const FLIGHT = 0.62; // seconds a card is in the air
 const EXPOSURE = 1 / 9; // perceptual integration window at playback rate 1
 const SUITS = ['♠', '♥', '♦', '♣'];
 const HOLD_ALPHA = 0.05;
-const CAM_W = 400;
-const CAM_H = 225;
-const CAM_BUFFER_S = 4;
+const CAM_BUFFER_S = 4; // seconds of camera history kept for replay
+
+// Pick the replay buffer for this device. Frame rate comes first (slow motion reveals it),
+// then the largest 16:9 resolution whose frames fit a memory budget scaled to the device.
+// Frames are stored uncompressed (w x h x 4 bytes each), so this is what keeps phones from crashing.
+function planBuffer(fps, vw, vh) {
+  const mem = navigator.deviceMemory || 4; // GB; Safari doesn't report it, so assume a mid-range device
+  const phone = window.matchMedia('(pointer: coarse)').matches; // phone browsers kill tabs earlier
+  const budgetMB = phone ? 150 : mem >= 8 ? 360 : mem >= 4 ? 200 : 100;
+  const budget = budgetMB * 1024 * 1024;
+  const frames = Math.ceil(CAM_BUFFER_S * fps) + 2;
+  const srcH = Math.min(vh, (vw * 9) / 16); // tallest 16:9 crop the camera can supply
+  const heights = [1080, 900, 720, 576, 540, 480, 432, 360, 288, 270, 225];
+  const h = heights.find((x) => x <= srcH && Math.round((x * 16) / 9) * x * 4 * frames <= budget) || 225;
+  return { w: Math.round((h * 16) / 9), h, fps, frames };
+}
 
 const rand = (k) => {
   const x = Math.sin(k * 127.1 + 311.7) * 43758.5453;
@@ -156,6 +169,11 @@ export default function LiveLab() {
     active: false,
     history: [],
     camFrames: [],
+    camW: 400,
+    camH: 225,
+    camOn: false,
+    lastVT: -1,
+    lastMotionT: 0,
     camIndex: 0,
     lastCap: 0,
     motion: 0,
@@ -170,6 +188,8 @@ export default function LiveLab() {
   const [readout, setReadout] = useState({ r: 1, d: 0, active: false });
   const [revealed, setRevealed] = useState(null);
   const [camError, setCamError] = useState('');
+  const [camInfo, setCamInfo] = useState('');
+  const smallRef = useRef(null);
   const [running, setRunning] = useState(true);
   const params = useRef({ mode, source, u, alpha, running });
   params.current = { mode, source, u, alpha, running };
@@ -188,33 +208,129 @@ export default function LiveLab() {
   }, []);
 
   const stopCamera = useCallback(() => {
-    const v = videoRef.current;
-    if (v && v.srcObject) {
-      v.srcObject.getTracks().forEach((tr) => tr.stop());
-      v.srcObject = null;
+    const st = state.current;
+    st.camOn = false;
+    // Shrink every buffered canvas to 0x0 so browsers (Safari especially) release the
+    // memory right away instead of waiting for garbage collection.
+    st.camFrames.forEach((f) => {
+      if (f.canvas) {
+        f.canvas.width = 0;
+        f.canvas.height = 0;
+        f.canvas = null;
+      }
+    });
+    st.camFrames = [];
+    st.prevSmall = null;
+    // Stop the stream through our own handle: when the page unmounts, React has already
+    // cleared videoRef by the time this cleanup runs, so the element can't be relied on.
+    if (st.stream) {
+      st.stream.getTracks().forEach((tr) => tr.stop());
+      st.stream = null;
     }
+    const v = videoRef.current;
+    if (v) v.srcObject = null;
   }, []);
 
   useEffect(() => () => stopCamera(), [stopCamera]);
 
+  // Switching tabs or locking the phone turns the camera off and frees the buffer;
+  // the demo goes back to the card deal, and the visitor can turn the camera on again.
+  useEffect(() => {
+    const onHide = () => {
+      if (document.hidden && state.current.camOn) {
+        stopCamera();
+        state.current.d = 0;
+        setSource('cards');
+        setCamError('The camera turned off when you left the page. Use it again any time.');
+      }
+    };
+    document.addEventListener('visibilitychange', onHide);
+    return () => document.removeEventListener('visibilitychange', onHide);
+  }, [stopCamera]);
+
+  // Copy the newest camera frame into the ring buffer, cropped to 16:9 and mirrored.
+  const captureFrame = () => {
+    const st = state.current;
+    const v = videoRef.current;
+    if (!st.camOn || !st.visible || !v || v.readyState < 2 || !params.current.running) return;
+    const t = st.clock || 0;
+    let slot = st.camFrames[st.camIndex];
+    if (!slot.canvas) {
+      slot.canvas = document.createElement('canvas');
+      slot.canvas.width = st.camW;
+      slot.canvas.height = st.camH;
+    }
+    const c = slot.canvas.getContext('2d');
+    // Crop to the buffer's 16:9 shape instead of stretching (like object-fit: cover).
+    // Phones often deliver portrait frames, and the shape can change if the phone rotates.
+    const vw = v.videoWidth || st.camW;
+    const vh = v.videoHeight || st.camH;
+    const k = Math.max(st.camW / vw, st.camH / vh);
+    const sw = st.camW / k;
+    const sh = st.camH / k;
+    c.save();
+    c.translate(st.camW, 0);
+    c.scale(-1, 1);
+    c.drawImage(v, (vw - sw) / 2, (vh - sh) / 2, sw, sh, 0, 0, st.camW, st.camH);
+    c.restore();
+    slot.t = t;
+    st.camIndex = (st.camIndex + 1) % st.camFrames.length;
+    // Frame-difference motion energy for the automatic trigger, sampled at about 30 Hz
+    // so the threshold means the same thing at 30 or 60 fps.
+    if (t - st.lastMotionT >= 1 / 30 && smallRef.current) {
+      st.lastMotionT = t;
+      const sm = smallRef.current;
+      sm.drawImage(slot.canvas, 0, 0, 64, 36);
+      const px = sm.getImageData(0, 0, 64, 36).data;
+      if (st.prevSmall) {
+        let sum = 0;
+        for (let q = 0; q < px.length; q += 16) sum += Math.abs(px[q] - st.prevSmall[q]);
+        st.motion = sum / (px.length / 16);
+      }
+      st.prevSmall = new Uint8ClampedArray(px);
+    }
+  };
+
   const startCamera = async () => {
     setCamError('');
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 360 }, audio: false });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: 'user',
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+          frameRate: { ideal: 60 },
+          aspectRatio: { ideal: 16 / 9 },
+        },
+        audio: false,
+      });
+      state.current.stream = stream;
       const v = videoRef.current;
       v.srcObject = stream;
       await v.play();
+      const set = stream.getVideoTracks()[0].getSettings();
+      const fps = Math.min(60, Math.max(15, Math.round(set.frameRate || 30)));
+      const plan = planBuffer(fps, v.videoWidth || set.width || 1280, v.videoHeight || set.height || 720);
       const st = state.current;
-      if (!st.camFrames.length) {
-        const n = Math.ceil(CAM_BUFFER_S * 30);
-        st.camFrames = Array.from({ length: n }, () => {
-          const c = document.createElement('canvas');
-          c.width = CAM_W;
-          c.height = CAM_H;
-          return { canvas: c, t: -Infinity };
-        });
-      }
+      st.camW = plan.w;
+      st.camH = plan.h;
+      st.camFrames = Array.from({ length: plan.frames }, () => ({ canvas: null, t: -Infinity }));
+      st.camIndex = 0;
+      st.prevSmall = null;
       st.d = 0;
+      st.camOn = true;
+      // Capture every frame the camera delivers (requestVideoFrameCallback where supported;
+      // otherwise the draw loop checks for new frames).
+      if ('requestVideoFrameCallback' in v) {
+        const onFrame = () => {
+          captureFrame();
+          if (state.current.camOn) v.requestVideoFrameCallback(onFrame);
+        };
+        v.requestVideoFrameCallback(onFrame);
+      }
+      setCamInfo(
+        `Camera ${v.videoWidth}×${v.videoHeight} at ${fps} fps; replay buffer ${plan.w}×${plan.h}, ${CAM_BUFFER_S} s.`,
+      );
       setSource('camera');
     } catch (e) {
       setCamError('The camera isn’t available here, so the demo keeps running on the simulated card deal.');
@@ -239,7 +355,7 @@ export default function LiveLab() {
     const small = document.createElement('canvas');
     small.width = 64;
     small.height = 36;
-    const smctx = small.getContext('2d', { willReadFrequently: true });
+    smallRef.current = small.getContext('2d', { willReadFrequently: true });
     let lastReadout = 0;
 
     const frameAt = (target) => {
@@ -266,30 +382,14 @@ export default function LiveLab() {
       st.clock = (st.clock || 0.9) + dt;
       const t = st.clock;
 
-      // Camera capture into the ring buffer (about 30 fps).
+      // Camera capture happens per camera frame in captureFrame(); browsers without
+      // requestVideoFrameCallback fall back to checking for a new frame here.
       let cam = null;
       if (p.source === 'camera') {
         const v = videoRef.current;
-        if (v && v.readyState >= 2 && t - st.lastCap >= 1 / 30) {
-          const slot = st.camFrames[st.camIndex];
-          const c = slot.canvas.getContext('2d');
-          c.save();
-          c.translate(CAM_W, 0);
-          c.scale(-1, 1);
-          c.drawImage(v, 0, 0, CAM_W, CAM_H);
-          c.restore();
-          slot.t = t;
-          st.camIndex = (st.camIndex + 1) % st.camFrames.length;
-          st.lastCap = t;
-          // Frame-difference motion energy for the automatic trigger.
-          smctx.drawImage(slot.canvas, 0, 0, 64, 36);
-          const px = smctx.getImageData(0, 0, 64, 36).data;
-          if (st.prevSmall) {
-            let sum = 0;
-            for (let i = 0; i < px.length; i += 16) sum += Math.abs(px[i] - st.prevSmall[i]);
-            st.motion = sum / (px.length / 16);
-          }
-          st.prevSmall = new Uint8ClampedArray(px);
+        if (v && !('requestVideoFrameCallback' in v) && v.currentTime !== st.lastVT) {
+          st.lastVT = v.currentTime;
+          captureFrame();
         }
         cam = true;
       }
@@ -310,7 +410,7 @@ export default function LiveLab() {
       // Offset dynamics (Euler step), clamped to what the buffer can serve.
       const uu = active ? p.u : 0;
       const aa = active ? HOLD_ALPHA : p.alpha;
-      const maxD = p.source === 'camera' ? CAM_BUFFER_S - 0.2 : 6;
+      const maxD = p.source === 'camera' ? CAM_BUFFER_S - 0.25 : 6;
       st.d = Math.min(maxD, Math.max(0, st.d + dt * (uu - aa * st.d)));
       const g = t - st.d;
       const rate = 1 - uu + aa * st.d;
@@ -449,7 +549,7 @@ export default function LiveLab() {
       </div>
       <p className="lab-note" aria-live="polite">
         {camError || revealed || (source === 'camera'
-          ? 'Wave a hand and hold the scene. Video stays on your device; nothing is recorded or sent.'
+          ? `Wave a hand and hold the scene. Video stays on your device; nothing is recorded or sent. ${camInfo}`
           : 'Keyboard: focus the scene and hold Space.')}
       </p>
     </section>
