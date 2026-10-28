@@ -149,6 +149,15 @@ export function Work() {
   const prev = seq[idx - 1];
   const next = seq[idx + 1];
   const isPaper = Boolean(w.authors);
+  // Top of the page: looping clips if the paper has them, else the teaser video, else the image.
+  // When clips take the top slot, the teaser moves down into the Video section.
+  const hasClips = Boolean(w.clips && w.clips.length);
+  const teaser = ytId(w.videos && w.videos.teaser);
+  const bottomVideos = [
+    hasClips && teaser ? { id: teaser, caption: 'Teaser' } : null,
+    ytId(w.videos && w.videos.full) ? { id: ytId(w.videos.full), caption: 'Video figure' } : null,
+    ytId(w.videos && w.videos.talk) ? { id: ytId(w.videos.talk), caption: 'Talk' } : null,
+  ].filter(Boolean);
   return (
     <article className="workpage">
       <p className="crumb"><Link to="/publications">Publications</Link></p>
@@ -156,10 +165,43 @@ export function Work() {
       <p className="workpage-meta"><Venue venue={isPaper ? w.venue : `${w.venue}, ${w.year}`} award={w.award} /><Tags list={w.medium} /></p>
       {isPaper && <Authors list={w.authors} />}
       <Links links={w.links} />
-      {ytId(w.videos && w.videos.teaser) ? (
-        <YouTube id={ytId(w.videos.teaser)} title={`${w.short} teaser`} className="hero-media" />
+      {hasClips ? (
+        <section className="clips hero-clips">
+          {w.clips.map((c) => (
+            <figure className="clip" key={c.caption || c.alt}>
+              {/* Plays like a GIF: silent, looping, no controls. MP4 is a fraction of a GIF's size. */}
+              <video
+                poster={c.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                disablePictureInPicture
+                preload="auto"
+                aria-label={c.alt}
+              >
+                {c.webm && <source src={c.webm} type="video/webm" />}
+                <source src={c.video} type="video/mp4" />
+              </video>
+              {c.caption && <figcaption>{c.caption}</figcaption>}
+            </figure>
+          ))}
+        </section>
+      ) : teaser ? (
+        <YouTube id={teaser} title={`${w.short} teaser`} className="hero-media" />
       ) : (
         <Media media={w.media} label={w.short} className="hero-media" />
+      )}
+      {w.repo && (
+        <a className="repo-card" href={w.repo.href} target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          <span className="repo-card-text">
+            <strong>{w.repo.label}</strong>
+            <span>{w.repo.text}</span>
+          </span>
+        </a>
       )}
       <div className="prose">
         {w.blurb && <p>{w.blurb}</p>}
@@ -185,25 +227,12 @@ export function Work() {
           <p className="prose-lite">{w.pipeline.triggers}</p>
           <pre className="code" tabIndex={0}><code>{w.pipeline.code}</code></pre>
           <p className="aside-note">{w.pipeline.note}</p>
-        </section>
-      )}
-      {w.videos && (ytId(w.videos.full) || ytId(w.videos.talk)) && (
-        <section className="videos">
-          <h2 className="subhead">Video</h2>
-          <div className={`video-grid ${ytId(w.videos.full) && ytId(w.videos.talk) ? 'two' : ''}`}>
-            {ytId(w.videos.full) && (
-              <figure>
-                <YouTube id={ytId(w.videos.full)} title={`${w.short} video figure`} />
-                <figcaption>Video figure</figcaption>
-              </figure>
-            )}
-            {ytId(w.videos.talk) && (
-              <figure>
-                <YouTube id={ytId(w.videos.talk)} title={`${w.short} talk`} />
-                <figcaption>Talk</figcaption>
-              </figure>
-            )}
-          </div>
+          {w.pipeline.repo && (
+            <p className="repo-note">
+              {w.pipeline.repo.text}{' '}
+              <a href={w.pipeline.repo.href} target="_blank" rel="noreferrer">{w.pipeline.repo.label}</a>
+            </p>
+          )}
         </section>
       )}
       {w.figures && w.figures.length > 0 && (
@@ -214,6 +243,19 @@ export function Work() {
               <figure className="gallery" key={g.caption || g.alt}>
                 <img src={g.image} alt={g.alt} />
                 {g.caption && <figcaption>{g.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+      {bottomVideos.length > 0 && (
+        <section className="videos">
+          <h2 className="subhead">{bottomVideos.length > 1 ? 'Videos' : 'Video'}</h2>
+          <div className={`video-grid ${bottomVideos.length > 1 ? 'two' : ''}`}>
+            {bottomVideos.map((v) => (
+              <figure key={v.id}>
+                <YouTube id={v.id} title={`${w.short} ${v.caption.toLowerCase()}`} />
+                <figcaption>{v.caption}</figcaption>
               </figure>
             ))}
           </div>

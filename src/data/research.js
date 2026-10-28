@@ -15,6 +15,7 @@ import reachPdf from '../papers/chi-24-to-reach-the-unreachable.pdf';
 import physicsPdf from '../papers/uist-24-augmented-physics.pdf';
 import robotsPdf from '../papers/chi-25-signaling-human-intentions.pdf';
 import remapPdf from '../papers/uist-26-remapping-time.pdf';
+import remapEffects from '../media/remapping-effects.mp4';
 
 export const ME = 'Nandi Zhang';
 
@@ -42,6 +43,18 @@ export const publications = [
     doi: '10.1145/3830398.3830686',
     blurb:
       'In video see-through AR, the world arrives through a camera pipeline, so visual time itself can be designed. We formalize time remapping as a simple dynamical system; slowing fleeting moments roughly doubled people’s ability to identify briefly visible cards without significantly reducing comfort.',
+    repo: {
+      label: 'nandi-zhang/RemappingTimeAR',
+      text: 'Open-source system for Meta Quest 3. Compared to the paper, it adds head reprojection, more sample effects, an in-headset tuner, and a browser control panel.',
+      href: 'https://github.com/nandi-zhang/RemappingTimeAR',
+    },
+    clips: [
+      {
+        video: remapEffects,
+        alt: 'A grid of fifteen time-remapping effects recorded through a Quest 3 headset',
+        caption: 'Some example clips from the open-source system, recorded through the headset: hold to slow, echo trails, ghost, time lens, freeze frame, bullet time, and more.',
+      },
+    ],
     notes: [
       'Time remapping is continuous, frame-level control over which captured moment the display shows. A first-order model lets displayed time slow, pause, or race ahead, and then settle back to the present without overshooting.',
       'In a within-subjects study (N=21), participants identified playing cards that were only visible mid-motion, either watching someone else deal or dealing themselves, with remapping triggered by the user or by the system. Remapping helped in every combination. When the system slowed participants’ own motion, they also tended to slow their hands, a visuomotor effect we see as an opening for movement guidance.',
