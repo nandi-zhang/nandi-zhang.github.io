@@ -1,14 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.cf006cfd.css",
-    "main.js": "/static/js/main.e7e58706.js",
-    "static/media/uist-26-remapping-time.pdf": "/static/media/uist-26-remapping-time.e45be34afbda688b1d12.pdf",
+    "main.js": "/static/js/main.92a26369.js",
     "static/media/uist-24-augmented-physics.pdf": "/static/media/uist-24-augmented-physics.82cb67edfe2ebde2e1a9.pdf",
     "static/media/portrait.jpg": "/static/media/portrait.2c2d02ec92f423fb5027.jpg",
     "static/media/remapping-effects.mp4": "/static/media/remapping-effects.4591dcbcfaca6b4005ed.mp4",
     "static/media/chi-25-signaling-human-intentions.pdf": "/static/media/chi-25-signaling-human-intentions.4181a37f061247fc6c9b.pdf",
     "static/media/chi-24-to-reach-the-unreachable.pdf": "/static/media/chi-24-to-reach-the-unreachable.b959586ec50f4c212296.pdf",
-    "static/media/Nandi_Zhang_CV.pdf": "/static/media/Nandi_Zhang_CV.1d069396bae024e424b6.pdf",
+    "static/media/Nandi_Zhang_CV.pdf": "/static/media/Nandi_Zhang_CV.5d0f28ce8965501bd557.pdf",
     "static/media/reach-unreachable.jpg": "/static/media/reach-unreachable.2c2cb90fe03bb668d389.jpg",
     "static/media/following-to-understanding.jpg": "/static/media/following-to-understanding.d301ac049f652526fb32.jpg",
     "static/media/remapping-time.jpg": "/static/media/remapping-time.439586ac2888b76e028c.jpg",
@@ -18,10 +17,10 @@
     "static/media/remapping-demos.jpg": "/static/media/remapping-demos.08da8b707e8a2a8093a3.jpg",
     "index.html": "/index.html",
     "main.cf006cfd.css.map": "/static/css/main.cf006cfd.css.map",
-    "main.e7e58706.js.map": "/static/js/main.e7e58706.js.map"
+    "main.92a26369.js.map": "/static/js/main.92a26369.js.map"
   },
   "entrypoints": [
     "static/css/main.cf006cfd.css",
-    "static/js/main.e7e58706.js"
+    "static/js/main.92a26369.js"
   ]
 }
