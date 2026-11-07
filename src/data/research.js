@@ -14,7 +14,6 @@ import remapDemos from '../media/remapping-demos.jpg';
 import reachPdf from '../papers/chi-24-to-reach-the-unreachable.pdf';
 import physicsPdf from '../papers/uist-24-augmented-physics.pdf';
 import robotsPdf from '../papers/chi-25-signaling-human-intentions.pdf';
-import remapPdf from '../papers/uist-26-remapping-time.pdf';
 import remapEffects from '../media/remapping-effects.mp4';
 
 export const ME = 'Nandi Zhang';
@@ -77,7 +76,7 @@ export const publications = [
       },
     ],
     videos: { teaser: 'https://youtu.be/OUKte0xQy3o', full: 'https://youtu.be/eJDhAbtXmT4', talk: '' },
-    links: [{ label: 'Paper', href: remapPdf }],
+    links: [{ label: 'Paper', href: 'https://dl.acm.org/doi/full/10.1145/3830398.3830686' }],
     experiment: 'viscosity',
     pipeline: {
       steps: [
@@ -104,6 +103,7 @@ show(buffer.closestTo(t - d));  // displayed source time g(t) = t − d(t)`,
     venue: 'UIST 2026 Extended Abstract',
     kind: 'short',
     year: 2026,
+    award: 'SIC Best Jury Award',
     medium: ['Biosignals', 'Music'],
     blurb:
       'Music generated from partners’ physiological signals, as a way to stay connected in a long-distance relationship.',

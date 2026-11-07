@@ -21,7 +21,7 @@ export const profile = {
 
 export const engineering = {
   intro:
-    'Alongside HCI, I have a background in machine learning.',
+    'Alongside HCI, I have a background in machine learning and robotics.',
   items: [
     {
       title: 'Research intern, SenseTime',
@@ -29,10 +29,17 @@ export const engineering = {
       body:
         'Worked on neural collapse in transfer learning, few-shot distillation, and a large-scale vision training framework; implemented and trained vision, language and reinforcement learning models.',
     },
+    {
+      title: 'Hardware and software engineer, HKUST Robotics Team',
+      when: '2019 to 2022',
+      body:
+        'Built competition robots end to end, across software, electronics, and mechanical design. Designed a lightweight, energy-saving robot that ran vision-based detection on embedded hardware and drew its power from a magnetic field through electromagnetic induction. Designed mechanical parts in Fusion 360 and custom PCBs in Eagle, then built and soldered them.',
+    },
   ],
   toolkit: [
     ['Mixed reality', 'Unity, C#, Swift, C++, Meta Quest and Snap Spectacles development'],
     ['Machine learning', 'PyTorch, vision and multimodal models, LLMs, reinforcement learning'],
+    ['Robotics and hardware', 'Fusion 360, Eagle PCB design, soldering, 3D printing, embedded programming on microcontrollers, Arduino'],
     ['Studies and analysis', 'Controlled experiments, mixed-effects models, thematic analysis, Qualtrics'],
     ['Web and data', 'React, JavaScript, Python, R, SQL'],
   ],
@@ -40,6 +47,7 @@ export const engineering = {
 
 // TODO(Nandi): fill in exact months where marked "2026".
 export const news = [
+  { when: 'Nov 2026', text: 'Harmonia won the Best Jury Award at the UIST 2026 Student Innovation Contest!' },
   { when: 'Nov 2026', text: 'I will present Remapping Time, demo both Remapping Time and Harmonia, plus co-organize the Cyber-Physical System workshop at UIST 2026 in Detroit. I\'m also a student volunteer this time!' },
   { when: 'Jun 2026', text: 'Remapping Time accepted to UIST 2026, and Harmonia as an SIC extended abstract.' },
   { when: 'Oct 2025', text: 'Co-organized the Cyber-Physical System workshop at UIST 2025.' },
